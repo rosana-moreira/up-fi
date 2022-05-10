@@ -6,11 +6,12 @@ import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const queryClient = new QueryClient();
+  const AnyComponent = Component as any;
 
   return (
     <ChakraProvider resetCSS theme={theme}>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <AnyComponent {...pageProps} />
       </QueryClientProvider>
     </ChakraProvider>
   );
